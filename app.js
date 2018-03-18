@@ -71,7 +71,7 @@ app.post('/swap', function (req, res, next) {
             body.refresh_token = encrpytion.encrypt(body.refresh_token);
         }
         
-        res.setHeader("Access-Control-Allow-Origin", req.headers.referer.indexOf('localhost') ? 'http://localhost:1313' : 'https://blog.andi1984.de');
+        res.setHeader("Access-Control-Allow-Origin", req.headers.referer.indexOf('localhost') !== -1 ? 'http://localhost:1313' : 'https://blog.andi1984.de');
         res.status(response.statusCode);
         res.json(body);
 
@@ -112,7 +112,7 @@ app.post('/refresh', function (req, res, next) {
             body.refresh_token = encrpytion.encrypt(body.refresh_token);
         }
         
-        res.setHeader("Access-Control-Allow-Origin", req.headers.referer.indexOf("localhost") ? "http://localhost:1313" : "https://blog.andi1984.de");
+        res.setHeader("Access-Control-Allow-Origin", req.headers.referer.indexOf("localhost") !== -1 ? "http://localhost:1313" : "https://blog.andi1984.de");
         res.status(response.statusCode);
         res.json(body);
 
